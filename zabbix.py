@@ -18,6 +18,13 @@ class Api(object):
         self.auth = json_response['result']
         print 'Log in successful. Welcome %s.' % (user)
 
+    def logout(self):
+        json_response = self.do_request('user.logout')
+        if (json_response['result'] == True):
+            print 'Logged out. Good bye'
+        else:
+            print 'Log out failed. You might already log out.'
+
     def do_request(self, method, params=None):
         json_payload = {
             'jsonrpc': '2.0',
