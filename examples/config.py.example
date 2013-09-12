@@ -1,0 +1,6 @@
+# Zabbix server
+server = "http://localhost/zabbix"
+
+# Zabbix account
+user = "username_here"
+password = "password_here"
