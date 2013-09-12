@@ -13,6 +13,11 @@ class Api(object):
         self.auth = ''
         self.id = 0
 
+    def login(self, user='', password=''):
+        json_response = self.do_request('user.login', {'user': user, 'password': password})
+        self.auth = json_response['result']
+        print 'Log in successful. Welcome %s.' % (user)
+
     def do_request(self, method, params=None):
         json_payload = {
             'jsonrpc': '2.0',
