@@ -26,6 +26,16 @@ class Api(object):
         else:
             print 'Log out failed. You might already log out.'
 
+    def get_hostgroup(self, output='extend', sortfield='name'):
+        """ output = 'extend'|'shorten'|'refer'|list of fields
+              - 'extend' = get all info [default]
+              - 'shorten' = get only ids an object
+              - 'refer' = get id of an object and also ids of related objects
+              - list of fields, like ['groupid', 'name'] = get only listed fields
+        """
+        json_response = self.do_request('hostgroup.get', {'output': output, 'sortfield': sortfield})
+        return json_response['result']
+
     def do_request(self, method, params=None):
         json_payload = {
             'jsonrpc': '2.0',
