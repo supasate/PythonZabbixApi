@@ -1,4 +1,4 @@
-zabbix-api-python
+Python Zabbix API
 =================
 
 Zabbix API in Python
