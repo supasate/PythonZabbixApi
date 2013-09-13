@@ -1,6 +1,13 @@
-# Zabbix server
+# Zabbix server (including path to zabbix site)
 server = "http://localhost/zabbix"
 
 # Zabbix account
 user = "username_here"
 password = "password_here"
+
+# Other constants such as Zabbix's host id and item id
+# Zabbix Host Id
+# http_host_id = 10085
+#
+# Zabbix Item Id
+# http_processor_time_id = 23386

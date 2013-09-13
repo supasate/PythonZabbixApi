@@ -26,6 +26,27 @@ class Api(object):
         else:
             print 'Log out failed. You might already log out.'
 
+    def get_history(self, history_type='integer', hostids='', itemids='', time_from='', time_till=''):
+        """ history_type = "float"|"string"|"log"|"integer"|"text" 
+            hostids = int | array of int
+            itemids = int | array of int
+            time_from = unix timestamp
+            time_till = unix timestamp
+        """
+        type_dict = {'float': 0, 'string': 1, 'log': 2, 'integer': 3, 'text': 4}
+        htype = type_dict[history_type]
+
+        json_response = self.do_request('history.get', {
+            'output': 'extend',
+            'history': htype,
+            'hostids': hostids,
+            'itemids': itemids,
+            'sortfield': 'clock',
+            'sortorder': 'DESC',
+            'time_from': time_from,
+            'time_till': time_till})
+        return json_response['result']
+
     def get_hostgroup(self, output='extend', sortfield='name'):
         """ output = 'extend'|'shorten'|'refer'|list of fields
               - 'extend' = get all info [default]
