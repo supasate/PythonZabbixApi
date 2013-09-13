@@ -1,6 +1,3 @@
-import sys
-sys.path.append('../')
-
 import zabbix
 from datetime import datetime
 from datetime import timedelta
